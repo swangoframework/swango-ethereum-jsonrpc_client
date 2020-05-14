@@ -1,1 +1,1 @@
-# swango-ethereum-jsonrpc-client
+# swango-ethereum-jsonrpc_client
