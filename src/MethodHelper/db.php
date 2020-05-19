@@ -1,19 +1,23 @@
 <?php
 namespace Swango\Ethereum\JsonRPCClient\MethodHelper;
+use Swango\Ethereum\JsonRPCClient\Method\db;
+
+/**
+ *
+ * @author fdrea
+ * @property \Swango\Ethereum\JsonRPCClient\Method\db\putString $putString
+ * @property \Swango\Ethereum\JsonRPCClient\Method\db\getString $getString
+ * @property \Swango\Ethereum\JsonRPCClient\Method\db\putHex $putHex
+ * @property \Swango\Ethereum\JsonRPCClient\Method\db\getHex $getHex
+ *
+ */
 class db {
-    private static $instance;
-    private $map = [];
-    public static function getInstance(): self {
-        if (self::$instance === null)
-            self::$instance = new self();
-        return self::$instance;
+    private $url;
+    public function __construct(string $url) {
+        $this->url = $url;
     }
     public function __get(string $key) {
-        if (array_key_exists($key, $this->map))
-            return $this->map[$key];
-        return null;
-    }
-    private function __construct() {
-        $this->map = [];
+        $classname = "db\\$key";
+        return new $classname($this->url);
     }
 }
