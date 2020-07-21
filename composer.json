@@ -15,7 +15,10 @@
 	"autoload" : {
 		"psr-4" : {
 			"Swango\\Ethereum\\JsonRPCClient\\" : "src"
-		}
+		},
+        "classmap": [
+            "src/JsonRPCClient.php"
+        ]
 	},
 	"config" : {
 		"optimize-autoloader" : true,

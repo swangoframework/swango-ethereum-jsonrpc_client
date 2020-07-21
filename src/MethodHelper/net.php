@@ -1,6 +1,5 @@
 <?php
 namespace Swango\Ethereum\JsonRPCClient\MethodHelper;
-use Swango\Ethereum\JsonRPCClient\Method\net;
 
 /**
  *
@@ -16,7 +15,7 @@ class net {
         $this->url = $url;
     }
     public function __get(string $key) {
-        $classname = "net\\$key";
+        $classname = "Swango\\Ethereum\\JsonRPCClient\\Method\\net\\$key";
         return new $classname($this->url);
     }
 }

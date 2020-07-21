@@ -1,6 +1,5 @@
 <?php
 namespace Swango\Ethereum\JsonRPCClient\MethodHelper;
-use Swango\Ethereum\JsonRPCClient\Method\web3;
 
 /**
  *
@@ -15,7 +14,7 @@ class web3 {
         $this->url = $url;
     }
     public function __get(string $key) {
-        $classname = "web3\\$key";
+        $classname = "Swango\\Ethereum\\JsonRPCClient\\Method\\web3\\$key";
         return new $classname($this->url);
     }
 }
